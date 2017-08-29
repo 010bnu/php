@@ -14,15 +14,20 @@ def get():
         with open('/home/php/index.htm','w') as f:
             f.write(match.group())
         print(match.group())
-
+        return match.group()
+        
 def autopush():
     os.system('git add .')
     os.system('git commit -m "add log"')
     os.system('git push origin master')
     
+new=''
+
 while True:
     
-    # start=time.time()
-    get()
-    autopush()
+    old=new
+    new=get()
+    
+    if new!=old:
+        autopush()
     time.sleep(60)
