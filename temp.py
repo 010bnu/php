@@ -33,5 +33,6 @@ while True:
         time.sleep(60)
 
     except:
+        print('error')
         time.sleep(100)
         continue
