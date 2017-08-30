@@ -24,10 +24,14 @@ def autopush():
 new=''
 
 while True:
+    try:    
+        old=new
+        new=get()
     
-    old=new
-    new=get()
-    
-    if new!=old:
-        autopush()
-    time.sleep(60)
+        if new!=old:
+            autopush()
+        time.sleep(60)
+
+    except:
+        time.sleep(100)
+        continue
